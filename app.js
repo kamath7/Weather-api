@@ -1,8 +1,13 @@
 const express = require('express');
 const forecast = require('./src/forecast');
 const app = express();
+const dotenv = require('dotenv');
+dotenv.config();
 
-const port = 3000;
+const port = process.env.PORT;
+
+
+
 
 
 app.get('/',(req,res)=>{
@@ -21,7 +26,7 @@ app.get('/:city',(req,res)=>{
         });
     }
         forecast(city,(error,result)=>{
-            console.log(city);
+           
             if(error){
                 return res.send({
                     error: error

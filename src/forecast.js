@@ -1,9 +1,10 @@
 const request = require('request');
-
+const dotenv = require('dotenv');
+dotenv.config();
 
 const forecast =  (location,callback)=>{
-    console.log(location);
-    const url = `https://geocoder.api.here.com/6.2/geocode.json?app_id=rZ9AkPqMfqOoPaBD8Hv3&app_code=oJq3EIMO05cBqRsoHPxBrg&searchtext=${location}
+    
+    const url = `https://geocoder.api.here.com/6.2/geocode.json?app_id=${process.env.APP_ID}&app_code=${process.env.APP_CODE}&searchtext=${location}
     `;
     request({url,json:true},(error,{body})=>{
         if(error){
