@@ -12,10 +12,7 @@ const port = process.env.PORT;
 
 
 app.get('/',(req,res)=>{
-    res.status(400).send({
-        status: 400,
-        error:'City not entered!'
-    });
+    res.status(400).send('Enter /city to get weather for city');
 })
 app.get('/:city',(req,res)=>{
    
